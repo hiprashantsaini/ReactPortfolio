@@ -1,0 +1,25 @@
+/* src/components/AnimatedText.css */
+
+.typed-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Customize cursor color */
+  .typed-cursor {
+    color: #ff5733; /* Replace with the desired cursor color */
+    font-weight: bold;
+    animation: blink 1s infinite;
+  }
+  
+  /* Blinking cursor animation */
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    50.1%, 100% {
+      opacity: 0;
+    }
+  }
+  
