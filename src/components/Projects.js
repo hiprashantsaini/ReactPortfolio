@@ -13,7 +13,7 @@ const projectsData = [
   {
     title: "Classroom App",
     description: "A comprehensive platform for principals and teachers to manage students and classes, schedule class timetables, and facilitate communication between educators and students.",
-    techStack: ["MERN Stack (MongoDB, Express.js, React, Node.js)"],
+    techStack: ["MERN Stack " ,"MongoDB", "Express.js", "React"," Node.js"],
     link: "https://classroom-web.netlify.app",
     github: "https://github.com/hiprashantsaini/collegeClassroom",
   },  
@@ -62,7 +62,7 @@ const Projects = () => {
               <p className="text-sm font-semibold text-gray-500">Tech Stack:</p>
               <ul className="flex flex-wrap mt-2 space-x-2">
                 {project.techStack.map((tech, techIndex) => (
-                  <li key={techIndex} className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <li key={techIndex} className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium my-1">
                     {tech}
                   </li>
                 ))}
@@ -72,9 +72,6 @@ const Projects = () => {
             {/* Hover Overlay */}
             <motion.div
               className="absolute inset-0 bg-blue-700 bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
             >
               <h3 className="text-2xl font-semibold text-white mb-4">{project.title}</h3>
               <p className="text-white text-center px-4 mb-4">{project.description}</p>
