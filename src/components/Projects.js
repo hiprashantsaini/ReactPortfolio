@@ -51,9 +51,9 @@ const Projects = () => {
           <motion.div
             key={index}
             className="relative group bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+            initial={{ opacity: 0,scale:0 }}
+            animate={{ opacity: 1,scale:1}}
+            transition={{ duration: 0.8,delay:index*0.4}}
           >
             {/* Project Card Content */}
             <div className="p-6">

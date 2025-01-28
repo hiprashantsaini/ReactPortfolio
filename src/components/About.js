@@ -7,7 +7,7 @@ import './AnimatedText.css';
 const About = () => {
   return (
     <>
-      <h2 className="w-full text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">About Me</h2>
+      <h2 className="w-full text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-6 text-center">About Me</h2>
       <section id="about" className="container mx-auto py-12 px-6 flex flex-col-reverse md:flex-row items-center">
 
         {/* Left Section - About Text */}
