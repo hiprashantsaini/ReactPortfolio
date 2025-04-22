@@ -63,12 +63,3 @@ const App = () => {
 export default App;
 
 
-// import React from 'react';
-// import SecondPortFolio from "./SecondPortFolio";
-// const App = () => {
-//   return (
-//     <SecondPortFolio />
-//   )
-// }
-
-// export default App
