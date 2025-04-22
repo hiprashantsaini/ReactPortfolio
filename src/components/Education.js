@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { FaBookOpen, FaGraduationCap, FaSchool } from 'react-icons/fa'; // Importing educational icons
+import '../borderStyle.css';
 
 const educationData = [
   {

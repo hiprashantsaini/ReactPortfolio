@@ -27,11 +27,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div id='contact' className="max-w-lg mx-auto p-8 bg-white shadow-lg rounded-lg">
+    <div id='contact' className="max-w-lg mx-auto p-8 bg-white shadow-lg rounded-lg z-10">
       <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Contact Me</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1 flex items-center">
+          <label className="text-sm font-medium mb-1 flex items-center">
             <FontAwesomeIcon icon={faUser} className="h-5 w-5 text-blue-600 mr-2" />
             Name
           </label>

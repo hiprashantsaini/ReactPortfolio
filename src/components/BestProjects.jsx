@@ -1,16 +1,16 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import {
-    Box,
-    Button,
-    Card,
-    CardContent,
-    CardMedia,
-    Chip,
-    Container,
-    Grid,
-    Stack,
-    Typography
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Chip,
+  Container,
+  Grid,
+  Stack,
+  Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import React, { useEffect } from 'react';
