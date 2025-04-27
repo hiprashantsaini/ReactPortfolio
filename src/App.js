@@ -5,6 +5,7 @@ import About from './components/About';
 import BestProjects from './components/BestProjects';
 import ContactForm from './components/ContactForm';
 import Education from './components/Education';
+import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Projects from './components/Projects';
@@ -21,12 +22,45 @@ const App = () => {
   return (
     <div className='w-full'>
       <Header />
-      <EnhancedParticleBackground/>
+      <EnhancedParticleBackground />
 
       <About />
-      <div className='w-full p-6 flex justify-center items-center gap-4 text-pretty'>
-        <button onClick={() => setShowSkills(true)} className='p-2 px-6 bg-blue-600 hover:bg-blue-700 transition-all duration-300 hover:scale-105 text-white rounded-xl text-lg font-semibold'>SKILLS</button>
-        <button onClick={() => setShowProjects(true)} className='p-2 px-6 bg-blue-600 hover:bg-blue-700 transition-all duration-300 hover:scale-105 text-white rounded-xl text-lg font-semibold'>PROJECTS</button>
+      <div className='w-full p-8 flex justify-center items-center gap-6 text-pretty'>
+        <button
+          onClick={() => setShowSkills(true)}
+          className='relative p-3 px-8 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-lg text-lg font-bold uppercase tracking-wider shadow-lg overflow-hidden group animate-pulse'
+        >
+          <span className='relative z-10 flex overflow-hidden'>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full'>S</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-75'>k</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-100'>i</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-150'>l</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-200'>l</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-300'>s</span>
+          </span>
+          <span className='absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-size-200 animate-gradient'></span>
+          <span className='absolute bottom-0 left-0 w-full h-1 bg-blue-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left'></span>
+          <span className='absolute -inset-x-full -bottom-full h-16 w-full transform translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent'></span>
+        </button>
+
+        <button
+          onClick={() => setShowProjects(true)}
+          className='relative p-3 px-8 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-lg text-lg font-bold uppercase tracking-wider shadow-lg overflow-hidden group animate-pulse'
+        >
+          <span className='relative z-10 flex overflow-hidden'>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full'>P</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-75'>r</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-100'>o</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-150'>j</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-200'>e</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-250'>c</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-300'>t</span>
+            <span className='transform transition-transform duration-300 group-hover:-translate-y-full delay-350'>s</span>
+          </span>
+          <span className='absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-size-200 animate-gradient'></span>
+          <span className='absolute bottom-0 left-0 w-full h-1 bg-blue-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left'></span>
+          <span className='absolute -inset-x-full -bottom-full h-16 w-full transform translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent'></span>
+        </button>
       </div>
       <AnimatePresence>
         {
@@ -54,6 +88,7 @@ const App = () => {
       <Education />
       <Skills />
       <Projects />
+      <Experience/>
       <ContactForm />
       <Footer />
     </div>
@@ -61,5 +96,4 @@ const App = () => {
 };
 
 export default App;
-
 

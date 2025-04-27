@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Enhanced ParticleBackground component with more attractive and beautiful design
 export const EnhancedParticleBackground = () => {
@@ -245,3 +245,371 @@ export const EnhancedParticleBackground = () => {
       />
     );
   };
+
+//  Wave Background - Creates elegant flowing waves with a subtle color scheme that adds movement without distraction.
+export const WaveBackground = () => {
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+        let phase = 0;
+
+        const resize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+
+        const drawWave = (phase, amplitude, wavelength, color) => {
+            ctx.beginPath();
+            for (let x = 0; x <= canvas.width; x++) {
+                const y = amplitude * Math.sin((x / wavelength) + phase) + (canvas.height / 2);
+                if (x === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        };
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(240, 240, 255, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw multiple waves with different parameters
+            drawWave(phase * 0.8, 50, 200, 'rgba(65, 105, 225, 0.2)');
+            drawWave(phase * 0.7, 40, 150, 'rgba(70, 130, 180, 0.3)');
+            drawWave(phase * 0.9, 30, 100, 'rgba(100, 149, 237, 0.4)');
+
+            phase += 0.02;
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        window.addEventListener('resize', resize);
+        resize();
+        animate();
+
+        return () => {
+            window.removeEventListener('resize', resize);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
+
+    return (
+        <canvas
+            ref={canvasRef}
+            className="fixed top-0 left-0 w-full h-full -z-10"
+        />
+    );
+};
+
+
+// Bubble Background - Features colorful floating bubbles that gently pulse and move around the screen, creating a playful yet professional look.
+export const BubbleBackground = () => {
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        let bubbles = [];
+        let animationFrameId;
+
+        const colors = [
+            'rgba(255, 107, 129, 0.4)',
+            'rgba(42, 157, 143, 0.4)', 
+            'rgba(106, 76, 147, 0.4)',
+            'rgba(244, 162, 97, 0.4)',
+            'rgba(38, 70, 83, 0.4)'
+        ];
+
+        const resize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initBubbles();
+        };
+
+        const initBubbles = () => {
+            bubbles = [];
+            const bubbleCount = Math.floor(window.innerWidth / 30);
+
+            for (let i = 0; i < bubbleCount; i++) {
+                bubbles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 30 + 10,
+                    speedX: Math.random() * 0.8 - 0.4,
+                    speedY: Math.random() * 0.8 - 0.4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    pulseSpeed: 0.01 + Math.random() * 0.03,
+                    pulseDirection: 1,
+                    pulseSize: 0
+                });
+            }
+        };
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            bubbles.forEach(bubble => {
+                // Pulsing effect
+                bubble.pulseSize += bubble.pulseSpeed * bubble.pulseDirection;
+                if (bubble.pulseSize > 0.2 || bubble.pulseSize < -0.2) {
+                    bubble.pulseDirection *= -1;
+                }
+                
+                const radius = bubble.radius * (1 + bubble.pulseSize);
+                
+                // Draw bubble
+                ctx.beginPath();
+                ctx.arc(bubble.x, bubble.y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = bubble.color;
+                ctx.fill();
+                
+                // Add slight shine to bubbles
+                const gradient = ctx.createRadialGradient(
+                    bubble.x - radius * 0.3, bubble.y - radius * 0.3, 0,
+                    bubble.x, bubble.y, radius
+                );
+                gradient.addColorStop(0, 'rgba(255, 255, 255, 0.3)');
+                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                ctx.beginPath();
+                ctx.arc(bubble.x, bubble.y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+                
+                // Update position
+                bubble.x += bubble.speedX;
+                bubble.y += bubble.speedY;
+
+                // Bounce off walls
+                if (bubble.x < 0 || bubble.x > canvas.width) {
+                    bubble.speedX = -bubble.speedX;
+                }
+
+                if (bubble.y < 0 || bubble.y > canvas.height) {
+                    bubble.speedY = -bubble.speedY;
+                }
+            });
+
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        window.addEventListener('resize', resize);
+        resize();
+        animate();
+
+        return () => {
+            window.removeEventListener('resize', resize);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
+
+    return (
+        <canvas
+            ref={canvasRef}
+            className="fixed top-0 left-0 w-full h-full -z-10"
+        />
+    );
+};
+
+// Flowing gradient animation 
+// Gradient Flow Background - Produces a mesmerizing flowing gradient effect that slowly shifts colors, giving your section a modern and artistic feel.
+export const GradientFlowBackground = () => {
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        let time = 0;
+        let animationFrameId;
+
+        const resize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Create a complex gradient flow using simplex noise simulation
+            for (let x = 0; x < canvas.width; x += 20) {
+                for (let y = 0; y < canvas.height; y += 20) {
+                    // Simulate simplex noise with sin/cos functions
+                    const xOffset = Math.sin((x / 100) + time) * Math.cos((y / 100) - time);
+                    const yOffset = Math.cos((x / 100) - time) * Math.sin((y / 100) + time);
+                    
+                    // Generate colors based on position and time
+                    const r = 100 + 50 * Math.sin(xOffset);
+                    const g = 120 + 50 * Math.cos(yOffset);
+                    const b = 200 + 50 * Math.sin(xOffset + yOffset);
+                    
+                    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.05)`;
+                    ctx.beginPath();
+                    ctx.arc(x + (xOffset * 10), y + (yOffset * 10), 25, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            time += 0.01;
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        window.addEventListener('resize', resize);
+        resize();
+        animate();
+
+        return () => {
+            window.removeEventListener('resize', resize);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
+
+    return (
+        <canvas
+            ref={canvasRef}
+            className="fixed top-0 left-0 w-full h-full -z-10"
+        />
+    );
+};
+
+// Constellation Background - Creates an interactive star field that connects points as users move their mouse, perfect for a tech-focused portfolio.
+export const ConstellationBackground = () => {
+    const canvasRef = useRef(null);
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let animationFrameId;
+
+        const resize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initStars();
+        };
+
+        const initStars = () => {
+            stars = [];
+            const starCount = Math.floor((canvas.width * canvas.height) / 5000);
+
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5 + 0.5,
+                    brightness: Math.random() * 0.8 + 0.2,
+                    pulseSpeed: 0.02 + Math.random() * 0.03,
+                    pulseDirection: Math.random() > 0.5 ? 1 : -1,
+                    pulseBrightness: 0
+                });
+            }
+        };
+
+        const handleMouseMove = (e) => {
+            setMousePosition({ x: e.clientX, y: e.clientY });
+        };
+
+        const connectStarsToMouse = () => {
+            const maxDistance = 200;
+            
+            stars.forEach(star => {
+                const dx = mousePosition.x - star.x;
+                const dy = mousePosition.y - star.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < maxDistance) {
+                    const opacity = (1 - distance / maxDistance) * 0.8;
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(star.x, star.y);
+                    ctx.lineTo(mousePosition.x, mousePosition.y);
+                    ctx.stroke();
+                }
+            });
+        };
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(10, 15, 30, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Connect nearby stars
+            for (let i = 0; i < stars.length; i++) {
+                for (let j = i + 1; j < stars.length; j++) {
+                    const dx = stars[i].x - stars[j].x;
+                    const dy = stars[i].y - stars[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - distance / 100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(stars[i].x, stars[i].y);
+                        ctx.lineTo(stars[j].x, stars[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw and update stars
+            stars.forEach(star => {
+                // Update star pulse
+                star.pulseBrightness += star.pulseSpeed * star.pulseDirection;
+                if (Math.abs(star.pulseBrightness) > 0.3) {
+                    star.pulseDirection *= -1;
+                }
+                
+                const brightness = star.brightness + star.pulseBrightness;
+                
+                // Draw star
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${brightness})`;
+                ctx.fill();
+                
+                // Add glow effect
+                const glow = ctx.createRadialGradient(
+                    star.x, star.y, 0,
+                    star.x, star.y, star.radius * 4
+                );
+                glow.addColorStop(0, `rgba(255, 255, 255, ${brightness * 0.5})`);
+                glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius * 4, 0, Math.PI * 2);
+                ctx.fillStyle = glow;
+                ctx.fill();
+            });
+            
+            // Connect stars to mouse
+            connectStarsToMouse();
+
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', handleMouseMove);
+        resize();
+        animate();
+
+        return () => {
+            window.removeEventListener('resize', resize);
+            window.removeEventListener('mousemove', handleMouseMove);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, [mousePosition]);
+
+    return (
+        <canvas
+            ref={canvasRef}
+            className="fixed top-0 left-0 w-full h-full -z-10"
+        />
+    );
+};

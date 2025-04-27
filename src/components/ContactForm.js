@@ -1,8 +1,10 @@
 import { faClipboard, faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { LoaderCircle } from 'lucide-react';
 import React, { useState } from 'react';
 
 const ContactForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,12 +20,18 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-    // Reset the form after submission
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsLoading(true);
+
+    setTimeout(() => {
+      // Handle form submission logic here
+      console.log(formData);
+      setIsLoading(false);
+      alert("You message sent.");
+      // Reset the form after submission
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 2000);
   };
 
   return (
@@ -94,12 +102,18 @@ const ContactForm = () => {
           ></textarea>
         </div>
 
-        <button
+        {!isLoading ? <button
           type="submit"
           className="w-full py-3 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
         >
           Send Message
-        </button>
+        </button> :
+          <button
+            className="w-full py-3 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 flex justify-center items-center"
+          >
+            <LoaderCircle className='animate-spin' />
+          </button>
+        }
       </form>
     </div>
   );
