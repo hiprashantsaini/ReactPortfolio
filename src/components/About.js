@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { ReactTyped } from 'react-typed';
 import '../borderStyle.css';
-import img from '../data/myImg2.jpg';
+import img from '../data/myPhoto3BgFree.png';
 import './AnimatedText.css';
 
 
@@ -57,8 +57,9 @@ const About = () => {
           <img
             src={img}
             alt="Your Profile"
-            className="w-52 h-52 md:w-80 md:h-80 rounded-full shadow-lg object-cover"
+            className='w-52 h-52 md:w-80 md:h-80 rounded-full shadow-lg overflow-hidden object-contain'
           />
+        
         </motion.div>
       </section>
     </>
