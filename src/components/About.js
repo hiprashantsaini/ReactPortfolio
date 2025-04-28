@@ -10,7 +10,7 @@ const About = () => {
   return (
     <>
       <h2 className="w-full text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-6 text-center">About Me</h2>
-      <section id="about" className="container mx-auto py-12 px-6 flex flex-col-reverse md:flex-row items-center">
+      <section id="about" className="container mx-auto py-12 px-6 flex flex-col-reverse md:flex-row">
         {/* Left Section - About Text */}
         <motion.div
           className="md:w-1/2 w-full md:mr-8 mb-8 md:mb-0"

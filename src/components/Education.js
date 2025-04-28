@@ -8,7 +8,7 @@ const educationData = [
     title: "Graduation",
     year: "2021-25",
     marks: "7.9 SGPA",
-    school: "Your College Name",
+    school: "Rajkiya Engineering College Kannauj (AKTU University)",
     description: "Completed my Bachelor's in Computer Science, focusing on web development and AI.",
     icon: <FaGraduationCap className="text-3xl md:text-4xl" />,
     color: "from-indigo-600 to-blue-500"
