@@ -1,6 +1,6 @@
 import { Close, KeyboardArrowDown } from '@mui/icons-material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import About from './components/About';
 import BestProjects from './components/BestProjects';
 import ContactForm from './components/ContactForm';
@@ -97,3 +97,13 @@ const App = () => {
 
 export default App;
 
+// import React from 'react'
+// import SecondPortFolio from './SecondPortFolio'
+
+// const App = () => {
+//   return (
+//     <SecondPortFolio/>
+//   )
+// }
+
+// export default App

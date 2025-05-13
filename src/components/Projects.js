@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaDatabase, FaExternalLinkAlt, FaGithub, FaNodeJs, FaReact } from 'react-icons/fa';
 import { SiCss3, SiExpress, SiFirebase, SiMongodb, SiTailwindcss } from 'react-icons/si';
 
@@ -17,6 +17,22 @@ const techIcons = {
 };
 
 const projectsData = [
+  {
+    title: "Ecommerce App",
+    description: "A full-stack e-commerce platform having different types of products like sports, technical etc.",
+    techStack: ["React", "Framer motion", "Tailwind css"],
+    link: "https://cwtstore.netlify.app/",
+    github: "https://github.com/hiprashantsaini/EcommerceApp",
+    color: "from-blue-600 to-indigo-700"
+  },
+   {
+    title: "Task Planet UI Clone",
+    description: "An intuitive UI clone of Task Planet, offering users a sleek interface to manage tasks efficiently. Users can create, update, and categorize tasks while enjoying a visually engaging experience that enhances productivity.",
+    techStack: ["React", "React-Icons", "CSS"],
+    link: "https://tpcloneui.netlify.app",
+    github: "https://github.com/hiprashantsaini/TaskPlanetClone",
+    color: "from-cyan-500 to-blue-600"
+  },
   {
     title: "Social Media App",
     description: "A full-stack social media platform where users can share posts, follow others, and interact with comments and likes.",
@@ -37,7 +53,7 @@ const projectsData = [
     title: "Twitter Clone",
     description: "A social media platform that allows users to create accounts, post tweets, follow other users, and engage in real-time discussions.",
     techStack: ["React", "Node.js", "Google Firebase", "MongoDB", "Tailwind CSS"],
-    link: "https://twitter-cloneweb.netlify.app",
+    // link: "https://twitter-cloneweb.netlify.app",
     github: "https://github.com/hiprashantsaini/twitter_frontend",
     color: "from-purple-600 to-indigo-700"
   }, 
@@ -45,17 +61,9 @@ const projectsData = [
     title: "To-Do App",
     description: "A user-friendly task management application that allows users to create, update, and delete tasks, set due dates, and categorize tasks for better organization.",
     techStack: ["React", "Node.js", "Express.js", "MongoDB", "CSS"],
-    link: "https://todoplace.netlify.app",
+    // link: "https://todoplace.netlify.app",
     github: "https://github.com/hiprashantsaini/ToDoApp",
     color: "from-orange-500 to-red-600"
-  },
-  {
-    title: "Task Planet UI Clone",
-    description: "An intuitive UI clone of Task Planet, offering users a sleek interface to manage tasks efficiently. Users can create, update, and categorize tasks while enjoying a visually engaging experience that enhances productivity.",
-    techStack: ["React", "React-Icons", "CSS"],
-    link: "https://tpcloneui.netlify.app",
-    github: "https://github.com/hiprashantsaini/TaskPlanetClone",
-    color: "from-cyan-500 to-blue-600"
   }
 ];
 
@@ -192,7 +200,7 @@ const Projects = () => {
 
                 {/* Project Links */}
                 <div className="mt-auto flex gap-3">
-                  <motion.a
+                  {project.link && <motion.a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -201,7 +209,7 @@ const Projects = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaExternalLinkAlt /> Live Demo
-                  </motion.a>
+                  </motion.a>}
                   <motion.a
                     href={project.github}
                     target="_blank"

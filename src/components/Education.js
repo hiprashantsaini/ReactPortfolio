@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaBookOpen, FaGraduationCap, FaSchool } from 'react-icons/fa';
 import '../borderStyle.css';
 
@@ -69,7 +69,7 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="container mx-auto py-12 sm:py-16 px-4 sm:px-6 scroll">
+    <section id="education" className="max-w-[1240px] mx-auto py-12 sm:py-16 px-4 sm:px-6 scroll">
       <motion.h2 
         className="text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12" 
         initial={{ opacity: 0, y: -20 }}
