@@ -1,5 +1,5 @@
 import { Build, Home, School, Work } from "@mui/icons-material";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +11,17 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-800 text-white shadow-md sticky top-0 z-10">
+    <header className="bg-gray-100 text-gray-900 shadow-lg sticky top-0 z-10 border-b border-gray-200">
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-teal-400">Portfolio</h1>
+        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Portfolio</h1>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-6 items-center">
           <a
             href="#about"
             onClick={(e) => handleScroll(e, "about")}
-            className="flex items-center space-x-2 hover:text-teal-400"
+            className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
           >
             <Home fontSize="small" />
             <span>About</span>
@@ -29,7 +29,7 @@ const Header = () => {
           <a
             href="#education"
             onClick={(e) => handleScroll(e, "education")}
-            className="flex items-center space-x-2 hover:text-teal-400"
+            className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
           >
             <School fontSize="small" />
             <span>Education</span>
@@ -37,7 +37,7 @@ const Header = () => {
           <a
             href="#skills"
             onClick={(e) => handleScroll(e, "skills")}
-            className="flex items-center space-x-2 hover:text-teal-400"
+            className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
           >
             <Build fontSize="small" />
             <span>Skills</span>
@@ -45,7 +45,7 @@ const Header = () => {
           <a
             href="#projects"
             onClick={(e) => handleScroll(e, "projects")}
-            className="flex items-center space-x-2 hover:text-teal-400"
+            className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
           >
             <Work fontSize="small" />
             <span>Projects</span>
@@ -54,7 +54,7 @@ const Header = () => {
 
         {/* Mobile Menu Toggle Button */}
         <button
-          className="md:hidden focus:outline-none text-teal-400"
+          className="md:hidden focus:outline-none text-blue-600"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
@@ -93,13 +93,13 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden bg-gray-700">
+        <nav className="md:hidden bg-gray-50 border-t border-gray-200">
           <ul className="flex flex-col space-y-2 p-4">
             <li>
               <a
                 href="#about"
                 onClick={(e) => handleScroll(e, "about")}
-                className="flex items-center space-x-2 hover:text-teal-400"
+                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
               >
                 <Home fontSize="small" />
                 <span>About</span>
@@ -109,7 +109,7 @@ const Header = () => {
               <a
                 href="#education"
                 onClick={(e) => handleScroll(e, "education")}
-                className="flex items-center space-x-2 hover:text-teal-400"
+                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
               >
                 <School fontSize="small" />
                 <span>Education</span>
@@ -119,7 +119,7 @@ const Header = () => {
               <a
                 href="#skills"
                 onClick={(e) => handleScroll(e, "skills")}
-                className="flex items-center space-x-2 hover:text-teal-400"
+                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
               >
                 <Build fontSize="small" />
                 <span>Skills</span>
@@ -129,7 +129,7 @@ const Header = () => {
               <a
                 href="#projects"
                 onClick={(e) => handleScroll(e, "projects")}
-                className="flex items-center space-x-2 hover:text-teal-400"
+                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-300"
               >
                 <Work fontSize="small" />
                 <span>Projects</span>
