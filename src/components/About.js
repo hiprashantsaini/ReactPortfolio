@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import React from 'react';
 import { ReactTyped } from 'react-typed';
 import '../borderStyle.css';
-import img from '../data/myPhoto3BgFree.png';
+import img from '../data/profileImage.png';
 import './AnimatedText.css';
 
 
@@ -43,7 +42,10 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <p className='text-xl text-gray-700 font-thin'>I am a dedicated B.Tech CSE enthusiast with a passion for technology and innovation. Always eager to embrace new challenges, I strive to deliver high-quality results in every project I undertake. With a positive attitude and a commitment to continuous learning, I aim to make meaningful contributions to the tech industry and achieve remarkable success.</p>
+            <p className='text-xl text-gray-700 font-thin'>
+              I am a MERN Stack Developer with industry experience in building dynamic and scalable web applications. I specialize in React for creating interactive user interfaces and Node.js with Express for developing robust backend systems, powered by MongoDB databases. I enjoy transforming ideas into full-stack applications by writing optimized, secure, and maintainable code. I am committed to continuous growth and delivering high-quality solutions that drive real-world impact.
+            </p>
+
           </p>
         </motion.div>
 
@@ -59,9 +61,59 @@ const About = () => {
             alt="Your Profile"
             className='w-52 h-52 md:w-80 md:h-80 rounded-full shadow-lg overflow-hidden object-contain'
           />
-        
+
         </motion.div>
       </section>
+
+      {/* Contact Information Section */}
+      <motion.section
+        className="mt-12 px-6 pb-12"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <div className="max-w-7xl mx-auto bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-8 shadow-2xl shadow-orange-200">
+          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Get In Touch</h3>
+          
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+            {/* Email Card */}
+            <motion.a
+              href="mailto:prashantsaini4449@gmail.com"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-4 bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full md:w-auto"
+            >
+              <div className="bg-blue-600 text-white rounded-full p-4 text-2xl">
+                ✉
+              </div>
+              <div>
+                <p className="text-sm text-gray-600 font-semibold">Email</p>
+                <p className="text-lg font-bold text-gray-800">prashantsaini4449@gmail.com</p>
+              </div>
+            </motion.a>
+
+            {/* Phone Card */}
+            <motion.a
+              href="tel:+917895669626"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-4 bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full md:w-auto"
+            >
+              <div className="bg-green-600 text-white rounded-full p-4 text-2xl">
+                ☎
+              </div>
+              <div>
+                <p className="text-sm text-gray-600 font-semibold">Phone</p>
+                <p className="text-lg font-bold text-gray-800">+91 7895669626</p>
+              </div>
+            </motion.a>
+          </div>
+
+          <p className="text-center text-gray-600 mt-6 text-sm">
+            Feel free to reach out! I'm always happy to discuss new opportunities.
+          </p>
+        </div>
+      </motion.section>
     </>
   );
 };

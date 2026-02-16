@@ -13,7 +13,7 @@ import {
   Typography
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import img from "./Dashbord.png";
 import img4 from "./EducationSeekersProvider.png";
 import img2 from "./Frontend.png";
@@ -40,6 +40,17 @@ const BestProjects = () => {
       links: {
         github: "https://github.com/hiprashantsaini",
         live: "https://noticeforyou.netlify.app/admin"
+      }
+    },
+    ,
+    {
+      title: "CWTNet - Professional Networking Platform",
+  description: "A professional networking platform where users can create profiles, share posts, and connect with others. Features include secure authentication, real-time interactions, and a responsive full-stack MERN architecture.",
+    image: img4,
+      techStack: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"],
+      links: {
+        github: "https://github.com/hiprashantsaini",
+        live: "https://cwtnet.vercel.app/"
       }
     },
     {

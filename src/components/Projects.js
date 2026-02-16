@@ -17,6 +17,30 @@ const techIcons = {
 };
 
 const projectsData = [
+    {
+    title: "CWTNet",
+    description: "A full-stack MERN-based professional networking platform inspired by LinkedIn. Users can create profiles, share posts, connect with other professionals, and interact in real time. Built with secure authentication, REST APIs, and responsive UI to ensure a scalable and seamless user experience.",
+    techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "Tailwind CSS"],
+    link: "https://cwtnet.vercel.app/",
+    github: "https://github.com/hiprashantsaini", 
+    color: "from-blue-600 to-indigo-700"
+  },
+  {
+    title: "CWTChat",
+    description: "A real-time video conferencing and chat application built using the MERN stack with WebRTC and Socket.io. Features include peer-to-peer video calls, screen sharing, live chat, and secure room-based communication, delivering a smooth and interactive collaboration experience.",
+    techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "WebRTC", "Socket.io"],
+    link: "https://cwtchat.netlify.app/",
+    github: "https://github.com/hiprashantsaini",
+    color: "from-purple-600 to-pink-600"
+  },
+  {
+    title: "Posture Detection",
+    description: "An AI-powered posture detection web application utilizing MediaPipe BlazePose to analyze human body posture in real time through the webcam. It processes landmark detection and provides posture feedback, demonstrating practical implementation of computer vision concepts in web applications.",
+    techStack: ["JavaScript", "MediaPipe", "BlazePose", "HTML", "CSS"],
+    link: "https://hiprashantsaini.github.io/Posture_Detection/",
+    github: "https://github.com/hiprashantsaini/Posture_Detection",
+    color: "from-green-500 to-emerald-600"
+  },
   {
     title: "Ecommerce App",
     description: "A full-stack e-commerce platform having different types of products like sports, technical etc.",

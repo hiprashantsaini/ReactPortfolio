@@ -1,6 +1,6 @@
 import { Close, KeyboardArrowDown } from '@mui/icons-material';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import About from './components/About';
 import BestProjects from './components/BestProjects';
 import ContactForm from './components/ContactForm';
@@ -18,6 +18,16 @@ const App = () => {
   const [showSkills, setShowSkills] = useState(false);
   const [showBest, setShowBest] = useState(false);
 
+  const [autoAnimationLoading,setAutoAnimationLoading]=useState({
+    animate1:true
+  })
+
+  useEffect(()=>{
+     setTimeout(()=>{
+       setAutoAnimationLoading((prev)=>({...prev,animate1:false}))
+     },2000)
+  },[]);
+
 
   return (
     <div className='w-full'>
@@ -25,6 +35,8 @@ const App = () => {
       <EnhancedParticleBackground />
 
       <About />
+
+     {/* {autoAnimationLoading.animate1 && <SlideImageCard/>} */}
       <div className='w-full p-8 flex justify-center items-center gap-6 text-pretty'>
         <button
           onClick={() => setShowSkills(true)}
@@ -97,7 +109,6 @@ const App = () => {
 
 export default App;
 
-// import React from 'react'
 // import SecondPortFolio from './SecondPortFolio'
 
 // const App = () => {
