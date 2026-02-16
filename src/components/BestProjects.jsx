@@ -42,7 +42,6 @@ const BestProjects = () => {
         live: "https://noticeforyou.netlify.app/admin"
       }
     },
-    ,
     {
       title: "CWTNet - Professional Networking Platform",
   description: "A professional networking platform where users can create profiles, share posts, and connect with others. Features include secure authentication, real-time interactions, and a responsive full-stack MERN architecture.",

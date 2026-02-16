@@ -19,6 +19,8 @@ import noticeAdminImage from "./components/Dashbord.png";
 import educationPlatform from "./components/EducationSeekersProvider.png";
 import noticeUserImage from "./components/Frontend.png";
 import taskManager from "./components/LapTopScreen.png";
+import img4 from "./data/cwtNet.png";
+import img from "./data/profileImage.png";
 
 // Utility function for scroll animations
 const useScrollAnimation = () => {
@@ -78,6 +80,34 @@ const AnimatedElement = ({ children, delay = 0, threshold = 0.2 }) => {
 
 // Project data
 const projectsData = [
+        {
+        title: "CWTNet",
+        description: "A full-stack MERN-based professional networking platform inspired by LinkedIn. Users can create profiles, share posts, connect with professionals, and interact in real time with secure authentication and responsive UI.",
+        techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "Tailwind CSS"],
+        link: "https://cwtnet.vercel.app/",
+        github: "https://github.com/hiprashantsaini",
+    },
+    {
+        title: "CWTChat",
+        description: "A real-time video conferencing and chat application built with MERN, WebRTC, and Socket.io. Supports peer-to-peer video calls, screen sharing, live chat, and secure room-based communication.",
+        techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "WebRTC", "Socket.io"],
+        link: "https://cwtchat.netlify.app/",
+        github: "https://github.com/hiprashantsaini",
+    },
+    {
+        title: "Posture Detection",
+        description: "An AI-powered posture detection web app using MediaPipe BlazePose to analyze body posture in real time via webcam and provide posture feedback using computer vision concepts.",
+        techStack: ["JavaScript", "MediaPipe", "BlazePose", "HTML", "CSS"],
+        link: "https://hiprashantsaini.github.io/Posture_Detection/",
+        github: "https://github.com/hiprashantsaini/Posture_Detection",
+    },
+    {
+        title: "Ecommerce App",
+        description: "A full-stack e-commerce platform featuring multiple product categories like sports and tech with modern UI and smooth animations.",
+        techStack: ["React", "Framer Motion", "Tailwind CSS"],
+        link: "https://cwtstore.netlify.app/",
+        github: "https://github.com/hiprashantsaini/EcommerceApp",
+    },
     {
         title: "Social Media App",
         description: "A full-stack social media platform where users can share posts, follow others, and interact with comments and likes.",
@@ -116,6 +146,16 @@ const projectsData = [
 ];
 
 const bestProjects = [
+    {
+      title: "CWTNet - Professional Networking Platform",
+  description: "A professional networking platform where users can create profiles, share posts, and connect with others. Features include secure authentication, real-time interactions, and a responsive full-stack MERN architecture.",
+    image: img4,
+      techStack: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"],
+      links: {
+        github: "https://github.com/hiprashantsaini",
+        live: "https://cwtnet.vercel.app/"
+      }
+    },
     {
         title: "NoticeForYou - User Interface",
         description: "A user-friendly notification platform where users can receive real-time alerts, manage preferences, and interact with notifications. Features include customizable notification settings, message threading, and push notifications.",
@@ -280,34 +320,34 @@ export default function SecondPortFolio() {
     const scrollY = useScrollAnimation();
     const [activeSection, setActiveSection] = useState('home');
 
-      const [isLoading, setIsLoading] = useState(false);
-      const [formData, setFormData] = useState({
+    const [isLoading, setIsLoading] = useState(false);
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: '',
-      });
-    
-      const handleChange = (e) => {
+    });
+
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
-          ...prevData,
-          [name]: value,
+            ...prevData,
+            [name]: value,
         }));
-      };
-    
-      const handleSubmit = async (e) => {
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-    
+
         setTimeout(() => {
-          // Handle form submission logic here
-          console.log(formData);
-          setIsLoading(false);
-          alert("You message sent.");
-          // Reset the form after submission
-          setFormData({ name: '', email: '', message: '' });
+            // Handle form submission logic here
+            console.log(formData);
+            setIsLoading(false);
+            alert("You message sent.");
+            // Reset the form after submission
+            setFormData({ name: '', email: '', message: '' });
         }, 2000);
-      };
+    };
 
 
     useEffect(() => {
@@ -476,7 +516,12 @@ export default function SecondPortFolio() {
                                 <div className="w-64 h-64 md:w-80 md:h-80 relative">
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 animate-pulse"></div>
                                     <div className="absolute inset-1 rounded-full bg-gray-900 flex items-center justify-center">
-                                        <div className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">PS</div>
+                                        {/* <div className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">PS</div> */}
+                                        <img
+                                            src={img}
+                                            alt="Profile"
+                                            className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-gray-800"
+                                        />
                                     </div>
                                 </div>
                             </AnimatedElement>
@@ -573,7 +618,7 @@ export default function SecondPortFolio() {
                         </AnimatedElement>
                     </div>
 
-                    <AnimatedElement delay={600}>
+                    {/* <AnimatedElement delay={600}>
                         <div className="mt-16">
                             <h3 className="text-2xl font-semibold mb-6 text-white">Experience & Education</h3>
 
@@ -646,6 +691,86 @@ export default function SecondPortFolio() {
                                 </div>
                             </div>
                         </div>
+                    </AnimatedElement> */}
+
+                    <AnimatedElement delay={600}>
+                        <div className="mt-16">
+                            <h3 className="text-2xl font-semibold mb-6 text-white">Experience & Education</h3>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {/* Revenza Tech */}
+                                <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 transition-all duration-300">
+                                    <div className="flex items-start mb-4">
+                                        <div className="p-2 rounded-md bg-blue-500/20 mr-4">
+                                            <Briefcase size={24} className="text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-medium text-white">Software Engineer / Full Stack</h4>
+                                            <p className="text-gray-400">Revenza Tech Pvt. Ltd.</p>
+                                            <p className="text-gray-500 text-sm">Aug 2025 - Present | Noida, On-site</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-gray-300">
+                                        Developing and maintaining ERP systems and mobile applications using Express.js, React, Node.js,
+                                        SQL for web applications and React Native for native apps.
+                                    </p>
+                                </div>
+
+                                {/* Arekiv Global */}
+                                <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 transition-all duration-300">
+                                    <div className="flex items-start mb-4">
+                                        <div className="p-2 rounded-md bg-blue-500/20 mr-4">
+                                            <Briefcase size={24} className="text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-medium text-white">Full Stack Developer</h4>
+                                            <p className="text-gray-400">Arekiv Global Research Platforms Pvt Ltd.</p>
+                                            <p className="text-gray-500 text-sm">Apr 2025 - Aug 2025 | Noida, Remote</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-gray-300">
+                                        Built end-to-end web features and responsive, intuitive user interfaces using the MERN stack.
+                                        Developed secure REST APIs with authentication and database integration.
+                                    </p>
+                                </div>
+
+                                {/* RoamVerse Internship */}
+                                <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 transition-all duration-300">
+                                    <div className="flex items-start mb-4">
+                                        <div className="p-2 rounded-md bg-blue-500/20 mr-4">
+                                            <Briefcase size={24} className="text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-medium text-white">MERN Stack Intern</h4>
+                                            <p className="text-gray-400">RoamVerse</p>
+                                            <p className="text-gray-500 text-sm">Dec 2024 - Mar 2025 | Remote</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-gray-300">
+                                        Gained hands-on experience in building full-stack web applications using MongoDB, Express.js,
+                                        React, and Node.js.
+                                    </p>
+                                </div>
+
+                                {/* Education */}
+                                <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 transition-all duration-300">
+                                    <div className="flex items-start mb-4">
+                                        <div className="p-2 rounded-md bg-blue-500/20 mr-4">
+                                            <GraduationCap size={24} className="text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-medium text-white">B.Tech in Computer Science and Engineering</h4>
+                                            <p className="text-gray-400">Rajkiya Engineering College Kannauj, AKTU</p>
+                                            <p className="text-gray-500 text-sm">2021 - 2025 | CGPA: 7.96</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-gray-300">
+                                        Bachelor's degree in Computer Science and Engineering with a focus on full-stack development,
+                                        algorithms, data structures, and software engineering principles.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </AnimatedElement>
                 </div>
             </section>
@@ -664,7 +789,7 @@ export default function SecondPortFolio() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {projectsData.map((project, index) => (
                             <AnimatedElement key={project.title} delay={index * 100}>
-                                <div className="bg-gray-800/50 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 transition-all duration-300 flex flex-col h-full">
+                                <div className="bg-gray-800/50 shadow1 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 transition-all duration-300 flex flex-col h-full">
                                     <div className="p-6 flex-1">
                                         <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
                                         <p className="text-gray-300 mb-4">{project.description}</p>
@@ -720,7 +845,7 @@ export default function SecondPortFolio() {
 
                     {bestProjects.map((project, index) => (
                         <AnimatedElement key={project.title} delay={index * 200}>
-                            <div className={`mb-16 flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} bg-gray-800/30 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-500/30 transition-all duration-300`}>
+                            <div className={`mb-16 flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} bg-gray-800/30 hover:shadow-[0_0_40px_rgba(20,184,166,0.4)] rounded-lg overflow-hidden border border-gray-700 hover:border-blue-500/30 transition-all duration-300`}>
                                 <div className="w-full md:w-1/2 overflow-hidden">
                                     <img
                                         src={project.image}
@@ -795,7 +920,7 @@ export default function SecondPortFolio() {
                             { name: "SQL", icon: <div className="text-blue-400 text-4xl">🗄️</div> }
                         ].map((tech, index) => (
                             <AnimatedElement key={tech.name} delay={index * 50}>
-                                <div className="bg-gray-800/50 rounded-lg border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 p-6 flex flex-col items-center justify-center transition-all duration-300 group">
+                                <div className="bg-gray-800/50 skill-card rounded-lg border border-gray-700 hover:border-blue-500/50 hover:bg-gray-800/70 p-6 flex flex-col items-center justify-center transition-all duration-300 group">
                                     <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
                                         {tech.icon}
                                     </div>
@@ -908,7 +1033,7 @@ export default function SecondPortFolio() {
                                         className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 w-full flex items-center justify-center group"
                                     >
                                         <LoaderCircle className="ml-2 size-6 animate-spin" />
-                                    </button> :<button
+                                    </button> : <button
                                         type="submit"
                                         className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 w-full flex items-center justify-center group"
                                     >
